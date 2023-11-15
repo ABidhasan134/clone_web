@@ -1,0 +1,560 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+body{
+    background-color:#000000 !important ;
+    font-family: 'Poppins',sans-serif;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    z-index: 1;
+}
+.mainPage{
+    width: 100%;
+    
+    /* border: 5px solid palevioletred; */
+}
+.topSide{
+    /* border: 5px solid red; */
+    display: flex;
+
+}
+.menuSide{
+    width: 30%;
+    padding: 30px;
+    /* border: 5px solid rebeccapurple; */
+    background: #010f29;
+}
+.songSide
+{
+    width: 70%;
+    background: #02163c;
+    /* z-index: -3; */
+    /* border: 5px solid wheat; */
+}
+.masterPlay{
+    /* border:2px solid rgb(248, 4, 4); */
+    width: 100%;
+    padding-left: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background: #010f29;
+}
+.iconList{
+    padding: 10px;
+    margin: 5px;
+    opacity: 40%;
+}
+.bi-music-note-beamed{
+    padding: 10px;
+    display: none;
+}
+.iconList span{
+    position: relative;
+    margin-right: 25px;
+}
+.iconList span::before{
+    content: '';
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 5px;
+    
+}
+.iconList:hover{
+    
+    opacity: 100%;
+}
+.active{
+    color: aqua;
+}
+.active span{
+    display: none;
+}
+.active .bi-music-note-beamed{
+    display: inline;
+}
+.songItems{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px;
+}
+.songItems:hover{
+    background: rgb(42, 42, 42);
+}
+.songItems img{
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    margin-left: 25px;
+    margin-right: 7px;
+}
+.songItems h3 {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;   
+}
+.subtitle{
+    opacity: 40%;
+    position: relative;
+    top: 20px;
+    left: -200px;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@keyframes moving-text {
+    0% {
+        text-indent: 0;
+    }
+    100% {
+        text-indent: -200px; /* Adjust this value to cover the width of the text */
+    }
+}
+.songMenu{
+    /* border: 5px solid red; */
+    height: 577px;
+    overflow: auto;
+}
+.songMenu::-webkit-scrollbar
+{
+    display: none;
+}
+.bi-play-circle{
+    font-size: 30px;
+    margin-left: -100px;
+}
+.wev{
+    display: flex;
+    height: 50px;
+    width: 200px;
+    /* border: 2px solid salmon; */
+    align-items: center;
+    
+    
+}
+.sub-wev{
+    height: 20px;
+    width: 3px;
+    background: aqua;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    animation: unset ;
+    /* animation: waveAnimation 2s infinite;  */
+}
+/* this nth-child also not working for this music player */
+.sub-wev:nth-child(2)
+{
+    height: 25px;
+    animation-delay: 0.4s;
+}
+.sub-wev:nth-child(3)
+{
+    height: 10px;
+    animation-delay: 0.5s;
+}
+/* active1 class for js.But here we can't take this class in js */
+.active1 {
+    animation: waveAnimation 0.4s  infinite;
+}
+.active1 .wev:nth-child(2){
+    animation-delay: 0.4s;
+}
+.active1 .wev:nth-child(3)
+{
+    animation-delay: 0.6;
+} 
+
+
+@keyframes waveAnimation {
+    0%{
+        height: 10px;
+    }
+    50%{
+        height: 25px;
+    }
+    100%{
+        height: 10px;
+    }
+}
+.masterPlay img{
+    height: 70px;
+    width: 70px;
+    padding: 5px;
+    padding-right: 0px;
+}
+.MP-title{
+    padding: 15px;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 0px;
+    
+
+}
+.MP-subTitle{
+    font-size: 20px;
+    opacity: 40%;
+    position: relative;
+    top: 30px;
+    left: -100px;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.MPicons{
+    display: flex;
+    position: relative;
+    font-size: 30px;
+    margin: 0px;
+    /* left: -100px; */
+
+}
+.pause-play{
+    color: #ff8a00;
+    display: none;
+}
+.currentTime{
+    position: relative;
+    left:20px;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 32px;
+    /* border: 2px solid red; */
+}
+.MP-input
+{
+    position: relative;
+    left: 0px;
+    width: 100%;
+    top: -11px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 99999;
+}
+.MP-player{
+    color: aqua;
+    position: relative;
+    background: rgb(0, 0, 1);
+    height: 5px;
+    width: 40%;
+    left: 40px;
+}
+.MP-subplayer{
+    position: relative;
+    height: 2px;
+    background: rgb(0, 238, 255);
+    width: 0%;
+    /* border: 2px solid palevioletred; */
+    top:-20px;
+    transition: 1s linear;
+}
+.MP-dot{
+    position: absolute ;
+    height: 20px;
+    width: 20px;
+    /* background: red;
+     */
+     border: 2px solid rgb(0, 238, 255);
+     border-radius: 50%;
+     top: -8px;
+     left: -10px;
+     transition: 0.8s linear;
+}
+.MP-dot::before{
+    content: '';
+    position: absolute;
+}
+.EndTime{
+    position: relative;
+    left: 50px;
+    padding: 10px;
+    margin-right: 10px;
+}
+#volume{
+    font-size: 25px;
+    padding: 5px;
+    position: relative;
+    margin-left: 40px;
+}
+.MP-volum{
+    display: flex;
+    height: 2px;
+    width: 8%;
+    background: rgb(32, 31, 31);
+    position: relative;
+    left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    /* opacity: 0; */
+
+}
+.MP-subvolum{
+    position: absolute;
+    background: aqua;
+    height: 2px;
+    top: 0px;
+    width: 80%;
+    transition: 0.5s linear;
+}
+.MPV-dot{
+    position: absolute;
+    height: 6px;
+    width: 7px;
+    border: 2px solid aqua;
+    border-radius: 50%;
+    top:-5px;
+    left: 100%;
+}
+.MPV-input{
+    position:relative ;
+    width: 100%;
+    opacity: 0;
+}
+.MPV-input:hover{
+    cursor: pointer;
+}
+
+.SSpic{
+    content: '';
+    background: url('./img/01.webp') no-repeat center center/cover;
+    position: absolute;
+    left: 65%;
+    top: 5%;
+    opacity: 50%;
+    border-radius: 40px;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    z-index: 1;
+    height: 400px;
+    width: 500px;
+}
+.SSmenu ul{
+    display: flex;
+    align-items: center;
+
+}
+.SSmenu ul li a{
+    text-decoration: none;
+    padding: 10px;
+    color: aliceblue;
+    font-size: 30px;
+    opacity: 40%;
+}
+.SSmenu ul li a:hover{
+    opacity: 100%;
+    /* background: red; */
+    text-decoration: underline  aqua;
+    padding-top: 3px;
+}
+
+/* .SSmenu ul li:nth-child(1)
+{
+    text-decoration: underline  aqua;
+    opacity: 100%;
+} */
+.SSmenu ul li {
+    list-style: none;
+}
+
+
+.SSnavbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.SSsearch{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+.SSinput{
+    
+    margin-right: 100px;
+    border: 1px solid white;
+    border-radius: 35px;
+    height: 40px;
+}
+.SSsearch a img{
+    padding-right: 50px;
+    height: 50px;
+    width: 50px;
+    z-index: 1;
+}
+.SSinput input {
+    /* background: black; */
+    background: none;
+    outline: none;
+    /* border: 2px solid white; */
+    border: none;
+    color: #fff;
+    height: 35px;
+    width: 265px;
+    font-size: 15px;
+    /* z-index: 2; */
+   
+}
+.SSinput .bi-search{
+    position: relative;
+    left: 0px;
+    padding: 12px;
+    width: 150%;
+    
+}
+/* .SSinput::before{
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 57%;
+    left: 8px;
+    border: none;
+    border-radius: 15px;
+    background: rgb(199, 199, 199);
+    filter: blur(2px);
+    opacity: 20%;
+    z-index: 1;
+} */
+.SSheading{
+    padding: 50px;
+}
+.SSheading p{
+    padding-top: 10px;
+    opacity: 40%;
+}
+.SSbtn{
+    padding-left: 50px ;
+    position: relative;
+    padding-bottom: 50px;
+}
+.btn1{
+    height: 35px;
+    width: 130px;
+    border-radius: 20px;
+    background: rgb(3, 195, 195);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+.btn2{
+    height: 35px;
+    width: 130px;
+    color: white;
+    background: transparent;
+    border: 2px solid aqua;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.SSsong{
+    height: 50%;
+    width: 95%;
+    padding: 10px;
+    /* border: 5px solid red; */
+    display: flex;
+    opacity: 100%;
+    z-index: 2;
+    overflow: hidden;
+    white-space: nowrap; 
+    /* overflow: auto; */
+    scroll-behavior: smooth;
+    padding-bottom: 50px;
+    z-index: 2;
+}
+
+.SSsong img
+{
+    height: 130px;
+    width: 130px;
+    opacity: 100%;
+}
+.SSsubtitele{
+    opacity: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+}
+.SScard h3{
+   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+}
+.SScard{
+    width: 150px;
+    padding: 5px;
+    margin: 5px;
+
+}
+.SSsinger{
+    display: flex;
+    width: 95%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.SSsinger::-webkit-scrollbar{
+    display: none;
+}
+.SSsinger a img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    padding: 15px;
+    
+    
+}
+.SSheading2{
+    display: flex;
+    justify-content: space-between;
+    padding-right:50px;
+    padding-left: 50px;
+}
+#popLeft,
+#popRight { 
+    font-size: 45px;
+    z-index: 3;
+    opacity: 100%;
+}
+#popLeft:hover{
+    cursor: pointer;
+    color: aqua;
+}
+#popRight:hover{
+    cursor: pointer;
+    color: aqua;
+}
+.SSsingerIcon{
+    display: flex;
+    position: relative;
+    justify-content: end;
+    margin-right: 50px;
+    font-size: 45px;
+    
+}
+.SSsingerIcon:hover{
+    color: aqua;
+    cursor: pointer;
+}
+.bi-pause-circle{
+    color: turquoise;
+    font-size: 30px;
+}
+.background
+{
+    background: rgb(42, 42, 42);
+}
